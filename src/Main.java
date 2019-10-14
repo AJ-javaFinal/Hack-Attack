@@ -43,6 +43,6 @@ public class Main {
                    acceptableAnswer = false;
                }
            }while(acceptableAnswer == false);
-           System.out.println("the mod is " + mod + "and the tax is " +  tax);
+           System.out.println("The mod is " + mod + ", and the tax is " +  tax + ".");
         }
 }
