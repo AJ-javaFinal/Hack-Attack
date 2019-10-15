@@ -1,8 +1,11 @@
+package HackAttack;
 import java.util.Scanner;
 public class Main {
         public static void main (String[]args){
             Scanner input = new Scanner(System.in);
             boolean acceptableAnswer = false;
+            double hp = 0;
+            double dmg = 0;
            double sEMod = .25;
            double eMod = .5;
            double mMod = 1;
@@ -14,15 +17,21 @@ public class Main {
            double mContinueTax = .5;
            double hContinueTax = .75;
            double sHContinueTax = 1;
-           double tax = 0;
+           double tax;
            String userChoice;
            do {
                System.out.println("Please choose a difficulty.");
                userChoice = input.next();
                if (userChoice.equalsIgnoreCase("SuperEasy")) {
+                   System.out.println("You chose " + userChoice + ", are you sure?");
+                   userChoice = input.next();
+                   if(userChoice.equalsIgnoreCase("Yes"))
+                       acceptableAnswer = true;
+                   else {
+                       acceptableAnswer = false;
+                   }
                    mod = sEMod;
                    tax = sEContinueTax;
-                   acceptableAnswer = true;
                } else if (userChoice.equalsIgnoreCase("Easy")) {
                    mod = eMod;
                    tax = eContinueTax;
@@ -36,13 +45,19 @@ public class Main {
                    tax = hContinueTax;
                    acceptableAnswer = true;
                } else if (userChoice.equalsIgnoreCase("SuperHard")) {
+                   System.out.println("You chose " + userChoice + ", are you sure?");
+                   userChoice = input.next();
+                   if(userChoice.equalsIgnoreCase("Yes"))
+                       acceptableAnswer = true;
+                   else {
+                       acceptableAnswer = false;
+                   }
                    mod = sHMod;
                    tax = sHContinueTax;
-                   acceptableAnswer = true;
                } else {
                    acceptableAnswer = false;
                }
            }while(acceptableAnswer == false);
-           System.out.println("The mod is " + mod + ", and the tax is " +  tax + ".");
+            Items.enemies(mod, hp, dmg);
         }
 }

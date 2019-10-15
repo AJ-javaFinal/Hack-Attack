@@ -36,15 +36,20 @@ public class GUI extends JFrame{
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
         JPanel panel3 = new JPanel();
+        JPanel panel4 = new JPanel();
+        JPanel panel5 = new JPanel();
         Container con = getContentPane();
         con.setLayout(new FlowLayout());
         con.add(panel1);
         con.add(panel2);
         con.add(panel3);
+        con.add(panel4);
+        con.add(panel5);
         panel1.add(button1);
-        panel1.add(button2);
-        panel2.add(button3);
-        panel3.add(button4);
+        panel2.add(button2);
+        panel3.add(button3);
+        panel4.add(button4);
+        panel5.add(button5);
         setSize(WIDTH, HEIGHT);
     }
     public static void main(String[]args){
