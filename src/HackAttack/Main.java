@@ -3,7 +3,13 @@ import java.util.Scanner;
 public class Main {
         public static void main (String[]args){
             Scanner input = new Scanner(System.in);
+            String shop [] = {};
+            int floor = 0;
+            boolean enemiesRemain = true;
             boolean acceptableAnswer = false;
+            double shield = 0;
+            double health = 0;
+            double atk = 0;
             double hp = 0;
             double dmg = 0;
            double sEMod = .25;
@@ -23,7 +29,7 @@ public class Main {
                System.out.println("Please choose a difficulty.");
                userChoice = input.next();
                if (userChoice.equalsIgnoreCase("SuperEasy")) {
-                   System.out.println("You chose " + userChoice + ", are you sure?");
+                   System.out.println("You chose " + userChoice + ", really?");
                    userChoice = input.next();
                    if(userChoice.equalsIgnoreCase("Yes"))
                        acceptableAnswer = true;
@@ -58,6 +64,14 @@ public class Main {
                    acceptableAnswer = false;
                }
            }while(acceptableAnswer == false);
-            Items.enemies(mod, hp, dmg);
+            do {
+                System.out.println("What will you attack with?");
+                userChoice = input.next();
+                //Enemies.enemies(mod, hp, dmg, floor);
+                Weapons.weapons(atk, mod, shield, health, userChoice);
+                if(userChoice.equalsIgnoreCase("None")){
+                    enemiesRemain = false;
+                }
+            }while(enemiesRemain == true);
+            }
         }
-}

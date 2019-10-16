@@ -1,7 +1,7 @@
 package HackAttack;
 import java.util.Random;
-public class Items {
-    public static void enemies(double mod, double hp, double dmg) {
+public class Enemies {
+    public static void enemies(double mod, double hp, double dmg, int floor) {
         Random rand = new Random();
         rat(mod, hp, dmg, rand);
         slime(mod, hp, dmg, rand);
