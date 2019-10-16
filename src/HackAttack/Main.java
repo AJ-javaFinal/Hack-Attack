@@ -68,7 +68,8 @@ public class Main {
                 System.out.println("What will you attack with?");
                 userChoice = input.next();
                 //Enemies.enemies(mod, hp, dmg, floor);
-                Weapons.weapons(atk, mod, shield, health, userChoice);
+                Weapons.weapons(atk, mod, userChoice);
+                Items.items(mod, shield, health, floor, userChoice);
                 if(userChoice.equalsIgnoreCase("None")){
                     enemiesRemain = false;
                 }

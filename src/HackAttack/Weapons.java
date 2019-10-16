@@ -1,7 +1,7 @@
 package HackAttack;
 import java.util.Random;
 public class Weapons {
-    public static void weapons(double atk, double mod, double shield, double health, String userChoice){
+    public static void weapons(double atk, double mod, String userChoice){
         Random rand = new Random();
         if(userChoice.equalsIgnoreCase("RustedSword")) {
             rustedSword(atk, mod, rand);
@@ -37,7 +37,6 @@ public class Weapons {
             kill(atk);
         }
         else{
-            System.out.println("Please enter a correct weapon.");
         }
     }
     public static void rustedSword(double atk, double mod, Random rand){
