@@ -1,11 +1,18 @@
 package HackAttack;
+import java.util.Random;
 import java.util.Scanner;
 public class Main {
         public static void main (String[]args){
             Scanner input = new Scanner(System.in);
-            String shop [] = {};
-            int floor = 0;
+            Random rand = new Random();
+            String correctItems [] = {"RustedSword","ShortSword","LongSword","GreatSword","RustyAxe",
+                    "Axe","GreatAxe","ShortBow","LongBow","Spear","SmallPotion","MediumPotion","LargePotion",
+                    "GiantPotion","WoodenShield","RustyShield","Shield","FloorToken","GameToken"};
+            int floor = 100;
+            int enemyCounter = 0;
+            boolean kontinue = true;
             boolean enemiesRemain = true;
+            boolean dead = false;
             boolean acceptableAnswer = false;
             double shield = 0;
             double health = 0;
@@ -67,12 +74,13 @@ public class Main {
             do {
                 System.out.println("What will you attack with?");
                 userChoice = input.next();
-                //Enemies.enemies(mod, hp, dmg, floor);
-                Weapons.weapons(atk, mod, userChoice);
-                Items.items(mod, shield, health, floor, userChoice);
-                if(userChoice.equalsIgnoreCase("None")){
-                    enemiesRemain = false;
+                Enemies.enemies(mod, hp, dmg, floor, enemyCounter, kontinue, enemiesRemain);
+                Weapons.weapons(atk, mod, userChoice, correctItems);
+                Items.items(mod, shield, health, floor, userChoice, correctItems);
+                System.out.println("There are " + enemyCounter + " enemies.");
+                if(userChoice.equalsIgnoreCase("Quit")){
+                    kontinue = false;
                 }
-            }while(enemiesRemain == true);
+            }while(kontinue == true);
             }
         }

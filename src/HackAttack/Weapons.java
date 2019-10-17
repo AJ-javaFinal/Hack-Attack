@@ -1,43 +1,31 @@
 package HackAttack;
 import java.util.Random;
 public class Weapons {
-    public static void weapons(double atk, double mod, String userChoice){
+    public static void weapons(double atk, double mod, String userChoice, String [] correctItems){
         Random rand = new Random();
-        if(userChoice.equalsIgnoreCase("RustedSword")) {
-            rustedSword(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("ShortSword")) {
-            shortSword(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("LongSword")) {
-            longSword(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("GreatSword")) {
-            greatSword(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("RustyAxe")) {
-            rustyAxe(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("Axe")) {
-            axe(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("GreatAxe")) {
-            greatAxe(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("ShortBow")) {
-            shortBow(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("LongBow")) {
-            longBow(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("Spear")){
-            spear(atk, mod, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("Kill")){
-            kill(atk);
-        }
-        else{
-        }
+            if (userChoice.equalsIgnoreCase("RustedSword")) {
+                rustedSword(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("ShortSword")) {
+                shortSword(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("LongSword")) {
+                longSword(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("GreatSword")) {
+                greatSword(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("RustyAxe")) {
+                rustyAxe(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("Axe")) {
+                axe(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("GreatAxe")) {
+                greatAxe(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("ShortBow")) {
+                shortBow(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("LongBow")) {
+                longBow(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("Spear")) {
+                spear(atk, mod, rand);
+            } else if (userChoice.equalsIgnoreCase("Kill")) {
+                kill(atk);
+            }
     }
     public static void rustedSword(double atk, double mod, Random rand){
         atk = (rand.nextInt(5) + 1) * mod;

@@ -2,7 +2,7 @@ package HackAttack;
 import java.util.Random;
 import java.util.Scanner;
 public class Items {
-    public static void items(double mod, double shield, double health, int floor, String userChoice){
+    public static void items(double mod, double shield, double health, int floor, String userChoice, String [] correctItems){
         Random rand = new Random();
         if(userChoice.equalsIgnoreCase("SmallPotion")) {
             smallPotion(mod, health, rand);
@@ -70,7 +70,6 @@ public class Items {
             invincible(health, shield);
         }
         else{
-            System.out.println("Please enter a correct weapon.");
         }
     }
     public static void smallPotion(double mod, double health, Random rand){
