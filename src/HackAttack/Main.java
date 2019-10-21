@@ -15,6 +15,8 @@ public class Main {
             boolean dead = false;
             boolean acceptableAnswer = false;
             double shield = 0;
+            double armor = 100;
+            double hitPoints = 100;
             double health = 0;
             double atk = 0;
             double hp = 0;
@@ -74,13 +76,12 @@ public class Main {
             do {
                 System.out.println("What will you attack with?");
                 userChoice = input.next();
-                Enemies.enemies(mod, hp, dmg, floor, enemyCounter, kontinue, enemiesRemain);
                 Weapons.weapons(atk, mod, userChoice, correctItems);
                 Items.items(mod, shield, health, floor, userChoice, correctItems);
-                System.out.println("There are " + enemyCounter + " enemies.");
                 if(userChoice.equalsIgnoreCase("Quit")){
                     kontinue = false;
                 }
             }while(kontinue == true);
+            Enemies.enemies(mod, hp, dmg, floor, enemyCounter, kontinue, enemiesRemain);
             }
         }

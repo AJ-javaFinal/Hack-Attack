@@ -4,72 +4,69 @@ import java.util.Scanner;
 public class Items {
     public static void items(double mod, double shield, double health, int floor, String userChoice, String [] correctItems){
         Random rand = new Random();
-        if(userChoice.equalsIgnoreCase("SmallPotion")) {
-            smallPotion(mod, health, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("MediumPotion")) {
-            mediumPotion(mod, health, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("LargePotion")) {
-            largePotion(mod, health, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("GiantPotion")) {
-            giantPotion(mod, health, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("WoodenShield")) {
-            woodenShield(mod,shield, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("RustyShield")) {
-            rustyShield(mod, shield, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("Shield")) {
-            shield(mod, shield, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("FloorToken")) {
-            floorToken(mod, floor, rand);
-        }
-        else if(userChoice.equalsIgnoreCase("GameToken")){
-            Scanner input = new Scanner(System.in);
-            int counter = 0;
-            int userPick = 0;
-            System.out.println("Welcome to virtual rock paper scissors!");
-            System.out.println("Please make your selection,\nTo choose rock, please press 1.\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
-                    "\nTo exit please enter 999.");
-           do {
-                int computerChoice = rand.nextInt(3) + 1;
-                String result = null;
-                userPick = input.nextInt();
-                if (userPick == 1 && computerChoice == 1) {
-                    result = "It's a draw!";
-                } else if (userPick == 1 && computerChoice == 2) {
-                    result = "Paper covers rock, you lose!";
-                } else if (userPick == 1 && computerChoice == 3) {
-                    result = "Your rock broke my scissors, you win!";
-                    counter++;
-                } else if (userPick == 2 && computerChoice == 1) {
-                    result = "Your paper covered my rock, you win!";
-                    counter++;
-                } else if (userPick == 2 && computerChoice == 2) {
-                    result = "It's a draw!";
-                } else if (userPick == 2 && computerChoice == 3) {
-                    result = "My scissors cut your paper, you loose!";
-                } else if (userPick == 3 && computerChoice == 1) {
-                    result = "My rock smashes your scissors, you loose!";
-                } else if (userPick == 3 && computerChoice == 2) {
-                    result = "Your scissors cut my paper, you win!";
-                    counter++;
-                } else if (userPick == 3 && computerChoice == 3) {
-                    result = "It's a draw!";
-                } else if (userPick > 3) {
-                    result = "Please enter a correct number.";
+        String result;
+        for(int i = 0; i < correctItems.length; i++){
+            if(userChoice.equalsIgnoreCase(correctItems[i])) {
+               result = correctItems[i].substring(0,2);
+                if(result.equalsIgnoreCase("Sm")){
+                   smallPotion(mod, health, rand);
+                } else if(result.equalsIgnoreCase("Me")) {
+                    mediumPotion(mod, health, rand);
+                }else if(result.equalsIgnoreCase("La")) {
+                    largePotion(mod, health, rand);
+                } else if(result.equalsIgnoreCase("Gi")) {
+                    giantPotion(mod, health, rand);
+                }else if(result.equalsIgnoreCase("Wo")) {
+                    woodenShield(mod,shield, rand);
+                }else if(result.equalsIgnoreCase("Ru")) {
+                    rustyShield(mod, shield, rand);
+                }else if(result.equalsIgnoreCase("Sh")) {
+                    shield(mod, shield, rand);
+                } else if(result.equalsIgnoreCase("Fl")) {
+                    floorToken(mod, floor, rand);
+                } else if(userChoice.equalsIgnoreCase("Ga")){
+                    Scanner input = new Scanner(System.in);
+                    int counter = 0;
+                    int userPick = 0;
+                    System.out.println("Welcome to virtual rock paper scissors!");
+                    System.out.println("Please make your selection,\nTo choose rock, please press 1.\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
+                            "\nTo exit please enter 999.");
+                    do {
+                        int computerChoice = rand.nextInt(3) + 1;
+                        String Print = null;
+                        userPick = input.nextInt();
+                        if (userPick == 1 && computerChoice == 1) {
+                            Print = "It's a draw!";
+                        } else if (userPick == 1 && computerChoice == 2) {
+                            Print = "Paper covers rock, you lose!";
+                        } else if (userPick == 1 && computerChoice == 3) {
+                            Print = "Your rock broke my scissors, you win!";
+                            counter++;
+                        } else if (userPick == 2 && computerChoice == 1) {
+                            Print = "Your paper covered my rock, you win!";
+                            counter++;
+                        } else if (userPick == 2 && computerChoice == 2) {
+                            Print = "It's a draw!";
+                        } else if (userPick == 2 && computerChoice == 3) {
+                            Print = "My scissors cut your paper, you loose!";
+                        } else if (userPick == 3 && computerChoice == 1) {
+                            Print = "My rock smashes your scissors, you loose!";
+                        } else if (userPick == 3 && computerChoice == 2) {
+                            Print = "Your scissors cut my paper, you win!";
+                            counter++;
+                        } else if (userPick == 3 && computerChoice == 3) {
+                            Print = "It's a draw!";
+                        } else if (userPick > 3) {
+                            Print = "Please enter a correct number.";
+                        }
+                        System.out.println(Print + "You have won the past " + counter + " times!");
+                    } while(counter < 3);
+                } else if(userChoice.equalsIgnoreCase("In")){
+                    invincible(health, shield);
                 }
-                System.out.println(result + "You have won the past " + counter + " times!");
-            } while(counter < 3);
-        }
-        else if(userChoice.equalsIgnoreCase("Invincible")){
-            invincible(health, shield);
-        }
-        else{
+                else{
+                }
+            }
         }
     }
     public static void smallPotion(double mod, double health, Random rand){
@@ -88,7 +85,7 @@ public class Items {
         health = (rand.nextInt(20) + 1) * mod;
         System.out.println("You gain " + health + " HP!");
     }
-    public static void woodenShield(double shield, double mod, Random rand){
+    public static void woodenShield(double mod, double shield, Random rand){
         shield = (rand.nextInt(5) + 1) * mod;
         System.out.println("You gain " + shield + " shield!");
     }
