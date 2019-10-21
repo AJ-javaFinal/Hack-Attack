@@ -2,7 +2,7 @@ package HackAttack;
 import java.util.Random;
 import java.util.Scanner;
 public class Items {
-    public static void items(double mod, double shield, double health, int floor, String userChoice, String [] correctItems){
+    public static void items(double mod, double shield, double health, double atk, int floor, double armor, String userChoice, String [] correctItems){
         Random rand = new Random();
         String result;
         for(int i = 0; i < correctItems.length; i++){
@@ -67,6 +67,7 @@ public class Items {
                 else{
                 }
             }
+            Engine.player(atk, shield, health, armor);
         }
     }
     public static void smallPotion(double mod, double health, Random rand){
