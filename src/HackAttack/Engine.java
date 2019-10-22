@@ -1,63 +1,101 @@
 package HackAttack;
+import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 import static HackAttack.Items.*;
-
+import java.util.Scanner;
 import static HackAttack.Enemies.*;
 import static HackAttack.Weapons.*;
 public class Engine {
-    public static void enemy(double hp, double dmg, int floor, boolean enemiesRemain, double mod) {
+    private static double enemyTest[];
+    public static void enemy(double hp, double dmg, int floor, boolean enemiesRemain, double mod, boolean kontinue) {
         Random rand = new Random();
         double[] enemyHpArray = new double[floor];
         double[] enemyAtkArray = new double[floor];
-        if (enemiesRemain = true) {
-            System.out.println("What do you do?");
-        } else {
-            floor++;
-            int enemyAmount = (floor);
-            for (int i = 0; i < floor; i++) {
-                if (i >= 0 && i != 100) {
-                    rat(mod, hp, dmg, rand);
-                } else if (floor >= 10 && floor != 100) {
-                    slime(mod, hp, dmg, rand);
-                } else if (floor >= 20 && floor != 100) {
-                    skeleton(mod, hp, dmg, rand);
-                } else if (floor >= 30 && floor != 100) {
-                    goblin(mod, hp, dmg, rand);
-                } else if (floor >= 40 && floor != 100) {
-                    orc(mod, hp, dmg, rand);
-                } else if (floor >= 50 && floor != 100) {
-                    demon(mod, hp, dmg, rand);
-                } else if (floor >= 60 && floor != 100) {
-                    poltergeist(mod, hp, dmg, rand);
-                } else if (floor >= 70 && floor != 100) {
-                    mimic(mod, hp, dmg, rand);
-                } else if (floor >= 80 && floor != 100) {
-                    dragon(mod, hp, dmg, rand);
-                } else if (floor >= 90 && floor != 100) {
-                    basilisk(mod, hp, dmg, rand);
-                } else if (floor == 100) {
-                    System.out.println("Good Luck");
-                    boss(mod, hp, dmg, rand);
+        enemyTest = enemyAtkArray;
+        do {
+            for (int j = 0; enemyHpArray[j] == 0; j++) {
+                if (j == floor) {
+                    enemiesRemain = false;
+                    floor++;
+                    if (enemiesRemain = true) {
+                        JOptionPane.showInputDialog(null,"What do you do?");
+                    } else {
+                        floor++;
+                        for (int i = 0; i < floor; i++) {
+                            if (i >= 0 && i != 100&& i <= 10) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                rat(mod, hp, dmg, rand);
+                            } else if (floor >= 10 && floor != 100 && i <= 20) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                slime(mod, hp, dmg, rand);
+                            } else if (floor >= 20 && floor != 100 && i <= 30) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                skeleton(mod, hp, dmg, rand);
+                            } else if (floor >= 30 && floor != 100 && i <= 40) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                goblin(mod, hp, dmg, rand);
+                            } else if (floor >= 40 && floor != 100 && i <= 50) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                orc(mod, hp, dmg, rand);
+                            } else if (floor >= 50 && floor != 100 && i <= 60) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                demon(mod, hp, dmg, rand);
+                            } else if (floor >= 60 && floor != 100 && i <= 70) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                poltergeist(mod, hp, dmg, rand);
+                            } else if (floor >= 70 && floor != 100 && i <=80) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                mimic(mod, hp, dmg, rand);
+                            } else if (floor >= 80 && floor != 100 && i <= 90) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                dragon(mod, hp, dmg, rand);
+                            } else if (floor >= 90 && floor != 100 && i < 100) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                basilisk(mod, hp, dmg, rand);
+                            } else if (floor == 100) {
+                                enemyHpArray[i] = hp;
+                                enemyAtkArray[i] = dmg;
+                                System.out.println("Good Luck");
+                                boss(mod, hp, dmg, rand);
+                            }
+                        }
+                    }
+                    Main.run();
                 }
             }
-        }
-        Main.run();
-    }public static void player(double atk, double shield, double health, double armor, String[] correctItems,
-                               String userChoice, double mod, int floor, boolean kontinue) {
+        }while(kontinue = true);
+    }
+    public static void player(double atk, double shield, double health, double armor, String[] correctItems,
+                               String userChoice, double mod, int floor, boolean kontinue, boolean dead) {
         String result;
         Random rand = new Random();
         Scanner input = new Scanner(System.in);
         do {
-            System.out.println("What will you attack with?");
-            userChoice = input.next();
+            userChoice = JOptionPane.showInputDialog(null,"What will you attack with?");
             if (userChoice.equalsIgnoreCase("Quit")) {
-                kontinue = false;
-
+                userChoice = JOptionPane.showInputDialog(null,"Are you sure?");
+                if(userChoice.equalsIgnoreCase("Yes")){
+                    kontinue = false;
+                    dead = true;
+                }else {
+                    dead = false;
+                }
             }
             for (int i = 0; i < correctItems.length; i++) {
                 if (userChoice.equalsIgnoreCase(correctItems[i])) {
                     result = correctItems[i].substring(0, 3);
+                    enemyTest[0] = enemyTest[0] - atk;
                     if (result.equalsIgnoreCase("Sma")) {
                         smallPotion(mod, health, rand);
                     } else if (result.equalsIgnoreCase("Med")) {
@@ -101,8 +139,8 @@ public class Engine {
                     }else if (result.equalsIgnoreCase("Gam")) {
                         int counter = 0;
                         int userPick = 0;
-                        System.out.println("Welcome to virtual rock paper scissors!");
-                        System.out.println("Please make your selection,\nTo choose rock, please press 1." +
+                        JOptionPane.showInputDialog(null,"Welcome to virtual rock paper scissors!");
+                        JOptionPane.showInputDialog(null,"Please make your selection,\nTo choose rock, please press 1." +
                                 "\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
                                 "\nTo exit please enter 999.");
                         do {
@@ -140,23 +178,17 @@ public class Engine {
                 }
             }
         }while (kontinue == true) ;
-//    }public static void output(double atk, double shield, double health, double armor, String[] correctItems, String userChoice,
- //                              double mod, int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain, boolean dead,
-//    double[]enemyHpArray){
-//        for(int i = 0; enemyHpArray[i] = 0; i++;){
-//            if(i = floor){
-//                enemysRemaining = false;
-//                floor++;
-//                if(dead = true){
-//                    System.out.println("continue?");
-//                    userChoice = input.next;
-//                    if(userChoice.equalsIgnoreCase("Yes")){
-//                        kontinue = true;
-//                    }else{
-//                        kontinue = false;
-//                    }
-//                }
-//            }
-//        }
+    }public static void output(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod,
+                               int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain, boolean dead){
+        Scanner input = new Scanner(System.in);
+                if(dead = true){
+                    JOptionPane.showInputDialog(null,"continue?");
+                    userChoice = input.next();
+                    if(userChoice.equalsIgnoreCase("Yes")){
+                        kontinue = true;
+                    }else{
+                        kontinue = false;
+                    }
+                }
+            }
     }
-}

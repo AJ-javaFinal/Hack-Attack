@@ -1,10 +1,11 @@
 package HackAttack;
+import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
     private static double mod = 0;
     private static double hp = 0;
-    private static int floor = 0;
+    private static int floor = 1;
     private static double dmg = 0;
     private static int enemyCounter = 0;
     private static boolean kontinue = true;
@@ -36,10 +37,9 @@ public class Main {
             String userChoice;
             do {
                 System.out.println("Please choose a difficulty.");
-                userChoice = input.next();
+                userChoice = JOptionPane.showInputDialog(null,"Please choose a difficulty.");
                 if (userChoice.equalsIgnoreCase("SuperEasy")) {
-                    System.out.println("You chose " + userChoice + ", really?");
-                    userChoice = input.next();
+                    userChoice =  JOptionPane.showInputDialog(null,"You chose " + userChoice + ", really?");
                     if (userChoice.equalsIgnoreCase("Yes"))
                         acceptableAnswer = true;
                     else {
@@ -60,8 +60,7 @@ public class Main {
                     tax = hContinueTax;
                     acceptableAnswer = true;
                 } else if (userChoice.equalsIgnoreCase("SuperHard")) {
-                    System.out.println("You chose " + userChoice + ", are you sure?");
-                    userChoice = input.next();
+                    userChoice = JOptionPane.showInputDialog(null,"You chose " + userChoice + ", really?");
                     if (userChoice.equalsIgnoreCase("Yes"))
                         acceptableAnswer = true;
                     else {
@@ -73,9 +72,9 @@ public class Main {
                     acceptableAnswer = false;
                 }
             } while (acceptableAnswer == false);
-            Engine.player(atk, shield, health, armor,correctItems,userChoice, mod, floor, kontinue);
-//            Engine.output(atk, shield, health, armor, correctItems, userChoice,
-//            mod, floor, kontinue, hp, dmg, enemiesRemain, dead, enemyHpArray);
+            Engine.player(atk, shield, health, armor,correctItems,userChoice, mod, floor, kontinue, dead);
+            Engine.output(atk, shield, health, armor, correctItems, userChoice,
+            mod, floor, kontinue, hp, dmg, enemiesRemain, dead);
         }
         public static void run(){
         }
