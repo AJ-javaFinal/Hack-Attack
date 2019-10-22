@@ -14,7 +14,7 @@ public class Main {
             Random rand = new Random();
             String correctItems[] = {"RustedSword", "ShortSword", "LongSword", "GreatSword", "RustyAxe",
                     "Axe", "GreatAxe", "ShortBow", "LongBow", "Spear", "SmallPotion", "MediumPotion", "LargePotion",
-                    "GiantPotion", "WoodenShield", "RustyShield", "Shield", "FloorToken", "GameToken"};
+                    "GiantPotion", "WoodenShield", "RustyShield", "Shield", "FloorToken", "GameToken", "Kill", "Invincible"};
             boolean dead = false;
             boolean acceptableAnswer = false;
             double shield = 0;
@@ -74,11 +74,7 @@ public class Main {
                 }
             } while (acceptableAnswer == false);
             Engine.player(atk, shield, health, armor,correctItems,userChoice, mod, floor, kontinue);
-//            Enemies.enemies(mod, hp, dmg);
-//            Weapons.weapons(atk, mod, health, armor, shield, userChoice, correctItems, kontinue);
-//            Items.items(mod, shield, health, atk, floor, armor, userChoice, correctItems);
         }
         public static void run(){
-           // Enemies.enemies(mod, hp, dmg);
         }
 }

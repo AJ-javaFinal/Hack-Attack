@@ -2,7 +2,9 @@ package HackAttack;
 import java.util.Random;
 import java.util.Scanner;
 import static HackAttack.Items.*;
+
 import static HackAttack.Enemies.*;
+import static HackAttack.Weapons.*;
 public class Engine {
     public static void enemy(double hp, double dmg, int floor, boolean enemiesRemain, double mod) {
         Random rand = new Random();
@@ -14,7 +16,7 @@ public class Engine {
             floor++;
             int enemyAmount = (floor);
             for (int i = 0; i < floor; i++) {
-                if (floor >= 0 && floor != 100) {
+                if (i >= 0 && i != 100) {
                     rat(mod, hp, dmg, rand);
                 } else if (floor >= 10 && floor != 100) {
                     slime(mod, hp, dmg, rand);
@@ -41,9 +43,7 @@ public class Engine {
             }
         }
         Main.run();
-    }
-
-    public static void player(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod, int floor, boolean kontinue) {
+    }public static void player(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod, int floor, boolean kontinue) {
         String result;
         Random rand = new Random();
         Scanner input = new Scanner(System.in);
@@ -71,11 +71,33 @@ public class Engine {
                         rustyShield(mod, shield, rand);
                     } else if (result.equalsIgnoreCase("Sh")) {
                         shield(mod, shield, rand);
-                    } else if (result.equalsIgnoreCase("Fl")) {
-                        floorToken(mod, floor, rand);
-                    } else if (userChoice.equalsIgnoreCase("In")) {
+                    }  else if (result.equalsIgnoreCase("In")) {
                         invincible(health, shield);
-                    } else if (userChoice.equalsIgnoreCase("Ga")) {
+                    }else if (result.equalsIgnoreCase("Fl")) {
+                        floorToken(mod, floor, rand);
+                    } else if (result.equalsIgnoreCase("Ru")) {
+                        rustedSword(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Sh")) {
+                        shortSword(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Lo")) {
+                        longSword(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Gr")) {
+                        greatSword(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Ru")) {
+                        rustyAxe(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Ax")) {
+                        axe(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Gr")) {
+                        greatAxe(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Sh")) {
+                        shortBow(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Lo")) {
+                        longBow(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Sp")) {
+                        spear(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Ki")) {
+                        kill(atk);
+                    }else if (result.equalsIgnoreCase("Ga")) {
                         int counter = 0;
                         int userPick = 0;
                         System.out.println("Welcome to virtual rock paper scissors!");
@@ -112,13 +134,11 @@ public class Engine {
                             System.out.println(Print + "You have won the past " + counter + " times!");
                         } while (counter < 3);
                     } else {
-
                     }
                 }
             }
-//            public static void output(){
-//
-//            }
         }while (kontinue == true) ;
+    }public static void output(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod, int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain){
+
     }
 }

@@ -8,7 +8,6 @@ public class Enemies {
         hp = (rand.nextInt(5) + 1) * mod;
         dmg = (rand.nextInt(5) + 1) * mod;
         System.out.println("The rats have " + hp + " health and do " + dmg + " damage.");
-
     }
     public static void slime(double mod, double hp, double dmg, Random rand) {
         hp = (rand.nextInt(10) + 1) * mod;
