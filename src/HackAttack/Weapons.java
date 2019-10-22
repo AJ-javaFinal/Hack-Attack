@@ -2,14 +2,15 @@ package HackAttack;
 import java.util.Scanner;
 import java.util.Random;
 public class Weapons {
-    public static void weapons(double atk, double mod, double health, double armor, double shield, String userChoice, String [] correctItems, boolean kontinue) {
+    public static void weapons(double atk, double mod, double health, double armor, double shield,
+                               String userChoice, String [] correctItems, boolean kontinue) {
         Random rand = new Random();
     }
-    public static void rustedSword(double atk, double mod, Random rand){
+    public static void dullSword(double atk, double mod, Random rand){
         atk = (rand.nextInt(5) + 1) * mod;
         System.out.println("Your attack does " + atk + " damage!");
     }
-    public static void shortSword(double atk, double mod, Random rand){
+    public static void dagger(double atk, double mod, Random rand){
         atk = (rand.nextInt(10) + 1) * mod;
         System.out.println("Your attack does " + atk + " damage!");
     }
@@ -17,7 +18,7 @@ public class Weapons {
         atk = (rand.nextInt(15) + 1) * mod;
         System.out.println("Your attack does " + atk + " damage!");
     }
-    public static void greatSword(double atk, double mod, Random rand){
+    public static void claymore(double atk, double mod, Random rand){
         atk = (rand.nextInt(20) + 1) * mod;
         System.out.println("Your attack does " + atk + " damage!");
     }
@@ -36,7 +37,7 @@ public class Weapons {
     public static void shortBow(double atk, double mod, Random rand){
         atk = (rand.nextInt(5) + 5) * mod;
         System.out.println("Your attack does " + atk + " damage!");
-    } public static void longBow(double atk, double mod, Random rand){
+    } public static void crossBow(double atk, double mod, Random rand){
         atk = (rand.nextInt(10) + 5) * mod;
         System.out.println("Your attack does " + atk + " damage!");
     }

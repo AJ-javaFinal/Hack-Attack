@@ -12,9 +12,9 @@ public class Main {
         public static void main (String[]args) {
             Scanner input = new Scanner(System.in);
             Random rand = new Random();
-            String correctItems[] = {"RustedSword", "ShortSword", "LongSword", "GreatSword", "RustyAxe",
-                    "Axe", "GreatAxe", "ShortBow", "LongBow", "Spear", "SmallPotion", "MediumPotion", "LargePotion",
-                    "GiantPotion", "WoodenShield", "RustyShield", "Shield", "FloorToken", "GameToken", "Kill", "Invincible"};
+            String correctItems[] = {"DullSword", "Dagger", "LongSword", "Claymore", "RustyAxe",
+                    "Axe", "GreatAxe", "ShortBow", "CrossBow", "Spear", "SmallPotion", "MediumPotion", "LargePotion",
+                    "GiantPotion", "WoodenShield", "BrokenShield", "Shield", "FloorToken", "GameToken", "Kill", "Invincible"};
             boolean dead = false;
             boolean acceptableAnswer = false;
             double shield = 0;
@@ -74,6 +74,8 @@ public class Main {
                 }
             } while (acceptableAnswer == false);
             Engine.player(atk, shield, health, armor,correctItems,userChoice, mod, floor, kontinue);
+//            Engine.output(atk, shield, health, armor, correctItems, userChoice,
+//            mod, floor, kontinue, hp, dmg, enemiesRemain, dead, enemyHpArray);
         }
         public static void run(){
         }

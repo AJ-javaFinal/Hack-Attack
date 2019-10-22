@@ -43,7 +43,8 @@ public class Engine {
             }
         }
         Main.run();
-    }public static void player(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod, int floor, boolean kontinue) {
+    }public static void player(double atk, double shield, double health, double armor, String[] correctItems,
+                               String userChoice, double mod, int floor, boolean kontinue) {
         String result;
         Random rand = new Random();
         Scanner input = new Scanner(System.in);
@@ -56,52 +57,53 @@ public class Engine {
             }
             for (int i = 0; i < correctItems.length; i++) {
                 if (userChoice.equalsIgnoreCase(correctItems[i])) {
-                    result = correctItems[i].substring(0, 2);
-                    if (result.equalsIgnoreCase("Sm")) {
+                    result = correctItems[i].substring(0, 3);
+                    if (result.equalsIgnoreCase("Sma")) {
                         smallPotion(mod, health, rand);
-                    } else if (result.equalsIgnoreCase("Me")) {
+                    } else if (result.equalsIgnoreCase("Med")) {
                         mediumPotion(mod, health, rand);
-                    } else if (result.equalsIgnoreCase("La")) {
+                    } else if (result.equalsIgnoreCase("Lar")) {
                         largePotion(mod, health, rand);
-                    } else if (result.equalsIgnoreCase("Gi")) {
+                    } else if (result.equalsIgnoreCase("Gia")) {
                         giantPotion(mod, health, rand);
-                    } else if (result.equalsIgnoreCase("Wo")) {
+                    } else if (result.equalsIgnoreCase("Woo")) {
                         woodenShield(mod, shield, rand);
-                    } else if (result.equalsIgnoreCase("Ru")) {
-                        rustyShield(mod, shield, rand);
-                    } else if (result.equalsIgnoreCase("Sh")) {
+                    } else if (result.equalsIgnoreCase("Bro")) {
+                        brokenShield(mod, shield, rand);
+                    } else if (result.equalsIgnoreCase("Shi")) {
                         shield(mod, shield, rand);
-                    }  else if (result.equalsIgnoreCase("In")) {
+                    }  else if (result.equalsIgnoreCase("Inv")) {
                         invincible(health, shield);
-                    }else if (result.equalsIgnoreCase("Fl")) {
+                    }else if (result.equalsIgnoreCase("Flo")) {
                         floorToken(mod, floor, rand);
-                    } else if (result.equalsIgnoreCase("Ru")) {
-                        rustedSword(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Sh")) {
-                        shortSword(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Lo")) {
+                    } else if (result.equalsIgnoreCase("Dul")) {
+                        dullSword(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Dag")) {
+                        dagger(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Lon")) {
                         longSword(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Gr")) {
-                        greatSword(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Ru")) {
+                    }else if (result.equalsIgnoreCase("Cla")) {
+                        claymore(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Rus")) {
                         rustyAxe(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Ax")) {
+                    }else if (result.equalsIgnoreCase("Axe")) {
                         axe(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Gr")) {
+                    }else if (result.equalsIgnoreCase("Gre")) {
                         greatAxe(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Sh")) {
+                    }else if (result.equalsIgnoreCase("Sho")) {
                         shortBow(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Lo")) {
-                        longBow(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Sp")) {
+                    }else if (result.equalsIgnoreCase("Cro")) {
+                        crossBow(atk, mod, rand);
+                    }else if (result.equalsIgnoreCase("Spe")) {
                         spear(atk, mod, rand);
-                    }else if (result.equalsIgnoreCase("Ki")) {
+                    }else if (result.equalsIgnoreCase("Kil")) {
                         kill(atk);
-                    }else if (result.equalsIgnoreCase("Ga")) {
+                    }else if (result.equalsIgnoreCase("Gam")) {
                         int counter = 0;
                         int userPick = 0;
                         System.out.println("Welcome to virtual rock paper scissors!");
-                        System.out.println("Please make your selection,\nTo choose rock, please press 1.\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
+                        System.out.println("Please make your selection,\nTo choose rock, please press 1." +
+                                "\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
                                 "\nTo exit please enter 999.");
                         do {
                             int computerChoice = rand.nextInt(3) + 1;
@@ -138,7 +140,23 @@ public class Engine {
                 }
             }
         }while (kontinue == true) ;
-    }public static void output(double atk, double shield, double health, double armor, String[] correctItems, String userChoice, double mod, int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain){
-
+//    }public static void output(double atk, double shield, double health, double armor, String[] correctItems, String userChoice,
+ //                              double mod, int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain, boolean dead,
+//    double[]enemyHpArray){
+//        for(int i = 0; enemyHpArray[i] = 0; i++;){
+//            if(i = floor){
+//                enemysRemaining = false;
+//                floor++;
+//                if(dead = true){
+//                    System.out.println("continue?");
+//                    userChoice = input.next;
+//                    if(userChoice.equalsIgnoreCase("Yes")){
+//                        kontinue = true;
+//                    }else{
+//                        kontinue = false;
+//                    }
+//                }
+//            }
+//        }
     }
 }

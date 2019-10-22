@@ -2,7 +2,8 @@ package HackAttack;
 import java.util.Random;
 import java.util.Scanner;
 public class Items {
-    public static void items(double mod, double shield, double health, double atk, int floor, double armor, String userChoice, String [] correctItems){
+    public static void items(double mod, double shield, double health, double atk, int floor,
+                             double armor, String userChoice, String [] correctItems){
         Random rand = new Random();
     }
     public static void smallPotion(double mod, double health, Random rand){
@@ -25,7 +26,7 @@ public class Items {
         shield = (rand.nextInt(5) + 1) * mod;
         System.out.println("You gain " + shield + " shield!");
     }
-    public static void rustyShield(double mod, double shield, Random rand){
+    public static void brokenShield(double mod, double shield, Random rand){
         shield = (rand.nextInt(10) + 1) * mod;
         System.out.println("You gain " + shield + " shield!");
     }
