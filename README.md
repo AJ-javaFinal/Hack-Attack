@@ -1,2 +1,2 @@
 # Hack Attack
-Final project for our java class
+This is the final project for my java class
