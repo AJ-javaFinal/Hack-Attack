@@ -18,8 +18,8 @@ public class Engine {
                 if (j == floor) {
                     enemiesRemain = false;
                     floor++;
+                    //This section of the code spawns new enemies when all of the current enemies die.
                     if (enemiesRemain = true) {
-                        JOptionPane.showInputDialog(null,"What do you do?");
                     } else {
                         floor++;
                         for (int i = 0; i < floor; i++) {
@@ -69,6 +69,7 @@ public class Engine {
                                 System.out.println("Good Luck");
                                 boss(mod, hp, dmg, rand);
                             }
+                            //This section decides which enemies to spawn on a given floor
                         }
                     }
                     Main.run();
@@ -83,19 +84,10 @@ public class Engine {
         Scanner input = new Scanner(System.in);
         do {
             userChoice = JOptionPane.showInputDialog(null,"What will you attack with?");
-            if (userChoice.equalsIgnoreCase("Quit")) {
-                userChoice = JOptionPane.showInputDialog(null,"Are you sure?");
-                if(userChoice.equalsIgnoreCase("Yes")){
-                    kontinue = false;
-                    dead = true;
-                }else {
-                    dead = false;
-                }
-            }
             for (int i = 0; i < correctItems.length; i++) {
                 if (userChoice.equalsIgnoreCase(correctItems[i])) {
                     result = correctItems[i].substring(0, 3);
-                    enemyTest[0] = enemyTest[0] - atk;
+//                    enemyTest[0] = enemyTest[0] - atk;
                     if (result.equalsIgnoreCase("Sma")) {
                         smallPotion(mod, health, rand);
                     } else if (result.equalsIgnoreCase("Med")) {
@@ -136,44 +128,47 @@ public class Engine {
                         spear(atk, mod, rand);
                     }else if (result.equalsIgnoreCase("Kil")) {
                         kill(atk);
+                    }else if (userChoice.equalsIgnoreCase("Qui")) {
+                        quit(dead, userChoice, kontinue);
                     }else if (result.equalsIgnoreCase("Gam")) {
+                        //This item plays a simple version of rock paper scissors.
                         int counter = 0;
                         int userPick = 0;
                         JOptionPane.showInputDialog(null,"Welcome to virtual rock paper scissors!");
                         JOptionPane.showInputDialog(null,"Please make your selection,\nTo choose rock, please press 1." +
-                                "\nTo choose paper, please pres 2.\nTo choose scissors, please press 3." +
+                                "\nTo choose paper, please press 2.\nTo choose scissors, please press 3." +
                                 "\nTo exit please enter 999.");
                         do {
                             int computerChoice = rand.nextInt(3) + 1;
                             String Print = null;
                             userPick = input.nextInt();
                             if (userPick == 1 && computerChoice == 1) {
-                                Print = "It's a draw!";
+                                JOptionPane.showInputDialog(null,"It's a draw!");
                             } else if (userPick == 1 && computerChoice == 2) {
-                                Print = "Paper covers rock, you lose!";
+                                JOptionPane.showInputDialog(null,"Paper covers rock, you lose!");
                             } else if (userPick == 1 && computerChoice == 3) {
-                                Print = "Your rock broke my scissors, you win!";
+                                JOptionPane.showInputDialog(null,"Your rock broke my scissors, you win!");
                                 counter++;
                             } else if (userPick == 2 && computerChoice == 1) {
-                                Print = "Your paper covered my rock, you win!";
+                                JOptionPane.showInputDialog(null,"Your paper covered my rock, you win!");
                                 counter++;
                             } else if (userPick == 2 && computerChoice == 2) {
-                                Print = "It's a draw!";
+                                JOptionPane.showInputDialog(null,"It's a draw!");
                             } else if (userPick == 2 && computerChoice == 3) {
-                                Print = "My scissors cut your paper, you loose!";
+                                JOptionPane.showInputDialog(null,"My scissors cut your paper, you loose!");
                             } else if (userPick == 3 && computerChoice == 1) {
-                                Print = "My rock smashes your scissors, you loose!";
+                                JOptionPane.showInputDialog(null,"My rock smashes your scissors, you loose!");
                             } else if (userPick == 3 && computerChoice == 2) {
-                                Print = "Your scissors cut my paper, you win!";
+                                JOptionPane.showInputDialog(null,"Your scissors cut my paper, you win!");
                                 counter++;
                             } else if (userPick == 3 && computerChoice == 3) {
-                                Print = "It's a draw!";
+                                JOptionPane.showInputDialog(null,"It's a draw!");
                             } else if (userPick > 3) {
-                                Print = "Please enter a correct number.";
+                                JOptionPane.showInputDialog(null,"Please enter a correct number.");
                             }
                             System.out.println(Print + "You have won the past " + counter + " times!");
                         } while (counter < 3);
-                    } else {
+                    }  {
                     }
                 }
             }
@@ -182,13 +177,13 @@ public class Engine {
                                int floor, boolean kontinue,double hp, double dmg, boolean enemiesRemain, boolean dead){
         Scanner input = new Scanner(System.in);
                 if(dead = true){
-                    JOptionPane.showInputDialog(null,"continue?");
-                    userChoice = input.next();
+                    userChoice =  JOptionPane.showInputDialog(null,"continue?");
                     if(userChoice.equalsIgnoreCase("Yes")){
                         kontinue = true;
                     }else{
                         kontinue = false;
                     }
+                    //When the player dies, this section of code determines if they want to continue playing
                 }
             }
     }

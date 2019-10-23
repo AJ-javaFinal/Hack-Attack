@@ -3,7 +3,6 @@ import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
-    private static double mod = 0;
     private static double hp = 0;
     private static int floor = 1;
     private static double dmg = 0;
@@ -15,7 +14,8 @@ public class Main {
             Random rand = new Random();
             String correctItems[] = {"DullSword", "Dagger", "LongSword", "Claymore", "RustyAxe",
                     "Axe", "GreatAxe", "ShortBow", "CrossBow", "Spear", "SmallPotion", "MediumPotion", "LargePotion",
-                    "GiantPotion", "WoodenShield", "BrokenShield", "Shield", "FloorToken", "GameToken", "Kill", "Invincible"};
+                    "GiantPotion", "WoodenShield", "BrokenShield", "Shield", "FloorToken", "GameToken", "Kill", "Invincible", "Quit"};
+            //This string prevents the game from accepting incorrect inputs.
             boolean dead = false;
             boolean acceptableAnswer = false;
             double shield = 0;
@@ -28,12 +28,15 @@ public class Main {
             double mMod = 1;
             double hMod = 2;
             double sHMod = 4;
+            double mod = 0;
+            //This variable modifies how difficult the game is.
             double sEContinueTax = .125;
             double eContinueTax = .25;
             double mContinueTax = .5;
             double hContinueTax = .75;
             double sHContinueTax = 1;
             double tax;
+            //Tax is used when a user dies, but wants to continue the game. A portion of their gold is removed when they respawn.
             String userChoice;
             do {
                 System.out.println("Please choose a difficulty.");
@@ -75,6 +78,7 @@ public class Main {
             Engine.player(atk, shield, health, armor,correctItems,userChoice, mod, floor, kontinue, dead);
             Engine.output(atk, shield, health, armor, correctItems, userChoice,
             mod, floor, kontinue, hp, dmg, enemiesRemain, dead);
+            //This while loop runs the game.
         }
         public static void run(){
         }
